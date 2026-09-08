@@ -1,10 +1,14 @@
-def fib_iterative(n, path):
+def fib(n):
+    if n < 2:
+        return n
+    return fib(n - 1) + fib(n - 2)
+
+
+def fib_recursive(n, path):
     with open(path, "w") as f:
-        a, b = 0, 1
-        for _ in range(n):
-            f.write(f"{a}\n")
-            a, b = b, a + b
+        for i in range(n):
+            f.write(f"{fib(i)}\n")
 
 
 if __name__ == "__main__":
-    fib_iterative(25, "output/fibonacci.txt")
+    fib_recursive(25, "output/fibonacci.txt")
